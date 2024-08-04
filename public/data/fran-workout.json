@@ -1,0 +1,100 @@
+[
+    {
+        "date": "2024-05-20",
+        "notes" : "",
+        "workout": [
+            {
+                "title": "Peito e abdominal",
+                "exercises": [
+                    {"name": "A. Supino reto maquina", "series": 3, "repetitions": 10, "weight": 5},
+                    {"name": "A. Rosca direta", "series": 3, "repetitions": 10, "weight": 5},
+                    {"name": "B. Desenvolvimento maquina", "series": 3, "repetitions": 10, "weight": 5},
+                    {"name": "B. Biceps concentrado", "series": 3, "repetitions": 10, "weight": 8},
+                    {"name": "C. Elevacao lateral", "series": 3, "repetitions": 10, "weight": 6},
+                    {"name": "C. Biceps", "series": 3, "repetitions": 10, "weight": 6},
+                    {"name": "D. Prancha", "series": 3, "repetitions": 10, "weight": 0},
+                    {"name": "D. Abdominal", "series": 3, "repetitions": 15, "weight": 0}
+                ]
+            },
+            {
+                "title": "Quads",
+                "exercises": [
+                    {"name": "Cadeira extensora", "series": 3, "repetitions": 10, "weight": 40},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": 60},
+                    {"name": "Agachamento", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Afundo", "series": 3, "repetitions": 10, "weight": 5}
+                ]
+            },
+            {
+                "title": "Costas",
+                "exercises": [
+                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 10, "weight": 30},
+                    {"name": "Remana curvada", "series": 3, "repetitions": 10, "weight": 5},
+                    {"name": "Pullover + triceps corda", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Parallel graviton", "series": 3, "repetitions": 10, "weight": 30},
+                    {"name": "Maquina panturrilha", "series": 3, "repetitions": 10, "weight": 25},
+                    {"name": "Maquina amarela", "series": 3, "repetitions": 10, "weight": 20}
+                ]
+            },
+            {
+                "title": "Posterior",
+                "exercises": [
+                    {"name": "Flexora em pé", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Stiff", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Elevacao de quadril", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Agachamento sumô", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Abdutor", "series": 3, "repetitions": 12, "weight": 40}
+                ]
+            }
+        ]
+    },
+    {
+        "date": "2024-08-20",
+        "notes" : "Mais carga",
+        "workout": [
+            {
+                "title": "Peito e abdominal",
+                "exercises": [
+                    {"name": "A. Supino reto maquina", "series": 3, "repetitions": 8, "weight": 10},
+                    {"name": "A. Rosca direta", "series": 3, "repetitions": 8, "weight": 6},
+                    {"name": "B. Desenvolvimento dumbell", "series": 3, "repetitions": 8, "weight": 6},
+                    {"name": "B. Biceps concentrado", "series": 3, "repetitions": 8, "weight": 8},
+                    {"name": "C. Elevacao lateral", "series": 3, "repetitions": 8, "weight": 6},
+                    {"name": "C. Biceps", "series": 3, "repetitions": 8, "weight": 8},
+                    {"name": "D. Prancha", "series": 3, "repetitions": "40seg", "weight": 0},
+                    {"name": "D. Abdominal", "series": 3, "repetitions": 15, "weight": 0}
+                ]
+            },
+            {
+                "title": "Quads",
+                "exercises": [
+                    {"name": "Cadeira extensora", "series": 3, "repetitions": 8, "weight": 45},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 8, "weight": "60/60/70"},
+                    {"name": "Agachamento", "series": 3, "repetitions": 8, "weight": 10},
+                    {"name": "Afundo", "series": 3, "repetitions": 8, "weight": 10}
+                ]
+            },
+            {
+                "title": "Costas",
+                "exercises": [
+                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 8, "weight": 35},
+                    {"name": "Puxada pegada neutra (barra nova)", "series": 3, "repetitions": 8, "weight": 35},
+                    {"name": "Pullover + triceps barra v", "series": 3, "repetitions": 8, "weight": 10},
+                    {"name": "Parallel maquina", "series": 3, "repetitions": 8, "weight": 15},
+                    {"name": "Maquina panturrilha", "series": 3, "repetitions": 8, "weight": 25},
+                    {"name": "Maquina amarela", "series": 3, "repetitions": 8, "weight": 20}
+                ]
+            },
+            {
+                "title": "Posterior",
+                "exercises": [
+                    {"name": "Flexora em pé", "series": 3, "repetitions": 8, "weight": 15},
+                    {"name": "Stiff", "series": 3, "repetitions": 8, "weight": 10},
+                    {"name": "Elevacao de quadril", "series": 3, "repetitions": 12, "weight": 25},
+                    {"name": "Agachamento sumô kettelbell", "series": 3, "repetitions": 20, "weight": 24},
+                    {"name": "Abdutor", "series": 3, "repetitions": 8, "weight": 45}
+                ]
+            }
+        ]
+    }
+]
