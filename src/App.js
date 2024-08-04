@@ -74,11 +74,11 @@ const App = () => {
   const workout = currentWorkout ? currentWorkout.workout.find(w => w.title === selectedTitle) : null;
 
   return (
-    <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100 mt-3 mt-md-0">
       <h1>Workout Plan</h1>
       {currentWorkout && <h2>Start date: {dayjs(currentWorkout.date).format('DD-MM-YYYY')}</h2>}
       {currentWorkout && <p>{currentWorkout.notes}</p>}
-      <div className="d-flex w-100 justify-content-end mb-3">
+      <div className="d-flex w-100 justify-content-center justify-content-md-end mb-3">
         <DropdownButton id="dropdown-date-button" title={dayjs(selectedDate).format('DD-MM-YYYY')} className="me-3">
           {workoutData.map((w) => (
             <Dropdown.Item key={w.date} onClick={() => handleSelectDate(w.date)}>
