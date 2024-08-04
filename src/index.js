@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/:username" element={<App />} />
+        <Route path="/" element={<App />} />
       </Routes>
     </Router>
   </React.StrictMode>,

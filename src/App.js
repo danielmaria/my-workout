@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Container, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import dayjs from 'dayjs';
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
-  const { username } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const username = queryParams.get('workout');
+
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
@@ -13,6 +16,12 @@ const App = () => {
 
   useEffect(() => {
     const fetchWorkoutData = async () => {
+      if (!username) {
+        setError('No workout specified');
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(`/data/${username}-workout.json`);
         if (!response.ok) {
@@ -32,7 +41,7 @@ const App = () => {
         }
         setLoading(false);
       } catch (err) {
-        setError(`No workout found for ${username}`);
+        setError(err.message);
         setLoading(false);
       }
     };
@@ -57,11 +66,7 @@ const App = () => {
   }
 
   if (error) {
-    return (
-      <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100">
-        <h1>{error}</h1>
-      </Container>
-    );
+    return <div>{error}</div>;
   }
 
   const currentWorkout = workoutData.find(workout => workout.date === selectedDate);
