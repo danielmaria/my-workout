@@ -5,6 +5,7 @@
         "workout": [
             {
                 "title": "Peito e costas",
+                "frequency": 8,
                 "exercises": [
                     {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 10},
                     {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 10},
@@ -15,6 +16,7 @@
             },
             {
                 "title": "Pernas",
+                "frequency": 8,
                 "exercises": [
                     {"name": "Extensao", "series": 3, "repetitions": 12, "weight": 20},
                     {"name": "Flexao", "series": 3, "repetitions": 12, "weight": 20},
