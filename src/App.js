@@ -32,7 +32,7 @@ const App = () => {
         }
         setLoading(false);
       } catch (err) {
-        setError(`No workout found for ${username}`);
+        setError(err.message);
         setLoading(false);
       }
     };
@@ -57,11 +57,7 @@ const App = () => {
   }
 
   if (error) {
-    return (
-      <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100">
-        <h1>{error}</h1>
-      </Container>
-    );
+    return <div>{error}</div>;
   }
 
   const currentWorkout = workoutData.find(workout => workout.date === selectedDate);
