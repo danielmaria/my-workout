@@ -1,6 +1,6 @@
 [
     {
-        "date": "2024-04-01",
+        "date": "2024-02-01",
         "notes" : "Volta apos 25 dias sem treino",
         "workout": [
             {
@@ -47,19 +47,9 @@
         ]
     },
     {
-        "date": "2024-07-01",
-        "notes" : "",
+        "date": "2024-05-01",
+        "notes" : "Volta apos 25 dias sem treino",
         "workout": [
-            {
-                "title": "Costas",
-                "exercises": [
-                    {"name": "Pullover", "series": 3, "repetitions": 12, "weight": 25},
-                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 10, "weight": 50},
-                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 10, "weight": 45},
-                    {"name": "Puxada maquina pegada triangulo", "series": 3, "repetitions": 10, "weight": "55"},
-                    {"name": "Remana alta com barra", "series": 3, "repetitions": 10, "weight": 10}
-                ]
-            },
             {
                 "title": "Peito",
                 "exercises": [
@@ -80,6 +70,109 @@
                 ]
             },
             {
+                "title": "Costas",
+                "exercises": [
+                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Puxada maquina pegada triangulo", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Remana maquina", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Remana alta com barra", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Pullover", "series": 3, "repetitions": 10, "weight": 25}
+                ]
+            },
+            {
+                "title": "Ombro e posterior",
+                "exercises": [
+                    {"name": "A. Desenvolvimento + manguito", "series": 3, "repetitions": "8", "weight": "6"},
+                    {"name": "A. Elevacao lateral halteres", "series": 3, "repetitions": "10", "weight": "8"},
+                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": "15/12/10/10", "weight": "20/22.5/25/25"},
+                    {"name": "Elevacao lateral maquina", "series": 3, "repetitions": 10, "weight": 8},
+                    {"name": "Flexora", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Bulgaro", "series": 3, "repetitions": 8, "weight": 8},
+                    {"name": "Stiff", "series": 3, "repetitions": 10, "weight": 10}
+                ]
+            }
+        ]
+    },
+    {
+        "date": "2024-06-01",
+        "notes" : "Volta apos 25 dias sem treino",
+        "workout": [
+            {
+                "title": "Peito",
+                "exercises": [
+                    {"name": "Supino reto maquina", "series": 4, "repetitions": 12, "weight": 25},
+                    {"name": "Supino inclinado maquina", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 35},
+                    {"name": "Supino inclinado com halteres", "series": 3, "repetitions": 12, "weight": 12},
+                    {"name": "Parallel graviton", "series": 3, "repetitions": 12, "weight": 25}
+                ]
+            },
+            {
+                "title": "Pernas",
+                "exercises": [
+                    {"name": "Extensao", "series": 3, "repetitions": 10, "weight": 40},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 10, "weight": 80},
+                    {"name": "Agachamento", "series": 4, "repetitions": 10, "weight": "15/20/25/30"},
+                    {"name": "Abdominal infra maquina", "series": 3, "repetitions": 10, "weight": "12"}
+                ]
+            },
+            {
+                "title": "Costas",
+                "exercises": [
+                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Puxada maquina pegada triangulo", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Remana maquina", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Remana alta com barra", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Pullover", "series": 3, "repetitions": 10, "weight": 25}
+                ]
+            },
+            {
+                "title": "Ombro e posterior",
+                "exercises": [
+                    {"name": "A. Desenvolvimento + manguito", "series": 3, "repetitions": "8", "weight": "6"},
+                    {"name": "A. Elevacao lateral halteres", "series": 3, "repetitions": "10", "weight": "8"},
+                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": "15/12/10/10", "weight": "20/22.5/25/25"},
+                    {"name": "Elevacao lateral maquina", "series": 3, "repetitions": 10, "weight": 8},
+                    {"name": "Flexora", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Bulgaro", "series": 3, "repetitions": 8, "weight": 8},
+                    {"name": "Stiff", "series": 3, "repetitions": 10, "weight": 10}
+                ]
+            }
+        ]
+    },{
+        "date": "2024-10-01",
+        "notes" : "Volta apos 25 dias sem treino",
+        "workout": [
+            {
+                "title": "Peito",
+                "exercises": [
+                    {"name": "Supino reto maquina", "series": 4, "repetitions": 12, "weight": 25},
+                    {"name": "Supino inclinado maquina", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 35},
+                    {"name": "Supino inclinado com halteres", "series": 3, "repetitions": 12, "weight": 12},
+                    {"name": "Parallel graviton", "series": 3, "repetitions": 12, "weight": 25}
+                ]
+            },
+            {
+                "title": "Pernas",
+                "exercises": [
+                    {"name": "Extensao", "series": 3, "repetitions": 10, "weight": 40},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 10, "weight": 80},
+                    {"name": "Agachamento", "series": 4, "repetitions": 10, "weight": "15/20/25/30"},
+                    {"name": "Abdominal infra maquina", "series": 3, "repetitions": 10, "weight": "12"}
+                ]
+            },
+            {
+                "title": "Costas",
+                "exercises": [
+                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Puxada maquina pegada triangulo", "series": 3, "repetitions": 10, "weight": "55"},
+                    {"name": "Remana maquina", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Remana alta com barra", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Pullover", "series": 3, "repetitions": 10, "weight": 25}
+                ]
+            },
+            {
                 "title": "Ombro e posterior",
                 "exercises": [
                     {"name": "A. Desenvolvimento + manguito", "series": 3, "repetitions": "8", "weight": "6"},
@@ -93,5 +186,4 @@
             }
         ]
     }
-    
 ]
