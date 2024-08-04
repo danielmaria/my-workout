@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Container, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import dayjs from 'dayjs';
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
-  const { username } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const username = queryParams.get('workout');
+
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
@@ -13,6 +16,12 @@ const App = () => {
 
   useEffect(() => {
     const fetchWorkoutData = async () => {
+      if (!username) {
+        setError('No workout specified');
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(`/data/${username}-workout.json`);
         if (!response.ok) {
