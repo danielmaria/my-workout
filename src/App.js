@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Container, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import dayjs from 'dayjs';
-import { useLocation } from 'react-router-dom';
 
 const App = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const username = queryParams.get('workout');
+  const baseURL = `${process.env.PUBLIC_URL}/data`; 
 
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
@@ -23,7 +24,7 @@ const App = () => {
       }
 
       try {
-        const response = await fetch(`/data/${username}-workout.json`);
+        const response = await fetch(`${baseURL}/${username}-workout.json`);
         if (!response.ok) {
           throw new Error(`Could not find data for ${username}`);
         }
@@ -47,7 +48,7 @@ const App = () => {
     };
 
     fetchWorkoutData();
-  }, [username]);
+  }, [username, baseURL]);
 
   const handleSelectDate = (date) => {
     setSelectedDate(date);
