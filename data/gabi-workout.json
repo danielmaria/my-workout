@@ -1,0 +1,28 @@
+[
+    {
+        "date": "2024-08-05",
+        "notes" : "Adaptação dos exercicios e pesos",
+        "workout": [
+            {
+                "title": "Peito e costas",
+                "exercises": [
+                    {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Elevacao lateral", "series": 3, "repetitions": 12, "weight": "4 ou 2"},
+                    {"name": "Pullover", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 12, "weight": 20}
+                ]
+            },
+            {
+                "title": "Pernas",
+                "exercises": [
+                    {"name": "Extensao", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Flexao", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": "20/20/30"},
+                    {"name": "Agachamento", "series": 4, "repetitions": 12, "weight": "Apenas a barra"},
+                    {"name": "Stiff", "series": 3, "repetitions": 12, "weight": "Apenas a barra"}
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "date": "2024-08-05",
+        "notes" : "",
+        "workout": [
+            {
+                "title": "Chest",
+                "exercises": [
+                    {"name": "Bench press machine", "series": 4, "repetitions": 12, "weight": 15},
+                    {"name": "Bench press machine incline", "series": 3, "repetitions": 12, "weight": 15},
+                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 25},
+                    {"name": "Parallel machine", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Triceps pulley slow motion", "series": 3, "repetitions": 12, "weight": 12.5}
+                ]
+            },
+            {
+                "title": "Legs",
+                "exercises": [
+                    {"name": "Leg extension seated", "series": 3, "repetitions": 12, "weight": 30},
+                    {"name": "Leg flexion seated", "series": 3, "repetitions": 12, "weight": 30},
+                    {"name": "Barbell squat", "series": 4, "repetitions": 12, "weight": 10},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": 40},
+                    {"name": "Power tower abs + Plank + Abs", "series": 3, "repetitions": 10, "weight": 0}
+                ]
+            },
+            {
+                "title": "Backs",
+                "exercises": [
+                    {"name": "Pull-down neutral grip", "series": 3, "repetitions": 12, "weight": 35},
+                    {"name": "Seated low row v-grip", "series": 3, "repetitions": 12, "weight": 30},
+                    {"name": "Bent-Over row", "series": 3, "repetitions": 12, "weight": 5},
+                    {"name": "Pullover pulley", "series": 3, "repetitions": 12, "weight": 15},
+                    {"name": "Biceps pulley slow motion", "series": 3, "repetitions": 12, "weight": 15}
+                ]
+            }
+        ]
+    },
+    {
+        "date": "2024-09-05",
+        "notes" : "Add more weight and decrease repetitions",
+        "workout": [
+            {
+                "title": "Chest",
+                "exercises": [
+                    {"name": "Bench press machine", "series": 4, "repetitions": 10, "weight": 20},
+                    {"name": "Bench press machine incline", "series": 3, "repetitions": 10, "weight": 20},
+                    {"name": "Fly", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Parallel machine", "series": 3, "repetitions": 10, "weight": 30},
+                    {"name": "Triceps pulley slow motion", "series": 3, "repetitions": 10, "weight": 15}
+                ]
+            },
+            {
+                "title": "Legs",
+                "exercises": [
+                    {"name": "Leg extension seated", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Leg flexion seated", "series": 3, "repetitions": 10, "weight": 50},
+                    {"name": "Barbell squat", "series": 4, "repetitions": 10, "weight": 15},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 10, "weight": 50},
+                    {"name": "Power tower abs + Plank + Abs", "series": 3, "repetitions": 10, "weight": 0}
+                ]
+            },
+            {
+                "title": "Backs",
+                "exercises": [
+                    {"name": "Pull-down neutral grip", "series": 3, "repetitions": 10, "weight": 40},
+                    {"name": "Seated low row v-grip", "series": 3, "repetitions": 10, "weight": 35},
+                    {"name": "Bent-Over row", "series": 3, "repetitions": 10, "weight": 10},
+                    {"name": "Pullover pulley", "series": 3, "repetitions": 10, "weight": 17.5},
+                    {"name": "Biceps pulley slow motion", "series": 3, "repetitions": 10, "weight": 17.5}
+                ]
+            }
+        ]
+    }
+]
