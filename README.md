@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# My Workout 💪
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+My Workout is a simple web application designed to provide easy access to workout routines. The project aims to be straightforward and functional without the need for a complex backend. It was created as a personal exercise to learn and practice React, showcasing how React can be used to build interactive and dynamic user interfaces.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- No Backend: This project doesn't rely on a backend. All data is stored locally, making it simple and easy to use.
+- Local Storage: Workout data is saved in the browser's local storage. This approach avoids the need for centralized data management but means data can be lost if the cache is cleared or if the user switches browsers or devices.
+- Workout Tracking: Users can select a workout routine, increment the number of times they've completed it, and visualize progress.
+- Dynamic Selection: The application dynamically loads workout routines based on a query parameter in the URL.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Local Storage Details
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Since My Workout uses local storage, it's important to note that:
 
-### `npm test`
+- Data is stored per browser: Clearing the cache will erase the data.
+- No cross-device sync: Data is not shared between devices or browsers.
+- Persistence: While convenient for quick access, it lacks the permanence of server-side storage.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
 
-### `npm run build`
+The application is deployed using GitHub Pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To find a workout, you need to specify a workout query parameter in the URL. For example:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+https://danielmaria.github.io/my-workout/?workout=daniel
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This URL structure expects a JSON file named daniel-workout.json in the public/data directory. If the specified file is not found, an error message will be displayed.
 
-### `npm run eject`
+## Running the Project Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run this project on your local machine, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+git clone https://github.com/danielmaria/my-workout.git
+cd my-workout
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies and star the development server:
 
-## Learn More
+```sh
+npm install
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Access the application:
+Open your browser and go to `http://localhost:3000/my-workout/?workout=your_workout_name`, replacing your_workout_name with the name of your JSON file.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## JSON Structure
 
-### Code Splitting
+To add a new workout routine, place a JSON file in the public/data directory with the following structure:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json
+[
+  {
+    "date": "YYYY-MM-DD",
+    "notes": "Some notes about the workout",
+    "workout": [
+      {
+        "title": "Workout Title",
+        "frequency": 3,
+        "exercises": [
+          {
+            "name": "Exercise Name",
+            "series": "3",
+            "repetitions": "10",
+            "weight": "50kg"
+          }
+        ]
+      }
+    ]
+  }
+]
+```
 
-### Analyzing the Bundle Size
+Replace the placeholders with actual data relevant to the workout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Conclusion
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+My Workout serves as a simple and accessible tool for managing and tracking workout routines. It demonstrates the power of React in building interactive web applications and provides a practical example of using local storage for data persistence. While not designed for complex use cases, it meets its goal of providing easy access to workout routines without the need for a backend.
