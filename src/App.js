@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Container, Table, DropdownButton, Dropdown } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
+import { Container, Table, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import dayjs from 'dayjs';
+import Confetti from 'react-confetti';
 
 const App = () => {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const username = queryParams.get('workout');
-  const baseURL = `${process.env.PUBLIC_URL}/data`; 
-
+  const [searchParams] = useSearchParams();
+  const username = searchParams.get('workout');
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
+  const [frequencyCounts, setFrequencyCounts] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    const savedCounts = JSON.parse(localStorage.getItem('frequencyCounts')) || {};
+    setFrequencyCounts(savedCounts);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('frequencyCounts', JSON.stringify(frequencyCounts));
+  }, [frequencyCounts]);
 
   useEffect(() => {
     const fetchWorkoutData = async () => {
-      if (!username) {
-        setError('No workout specified');
-        setLoading(false);
-        return;
-      }
-
       try {
-        const response = await fetch(`${baseURL}/${username}-workout.json`);
+        const response = await fetch(`/my-workout/data/${username}-workout.json`);
         if (!response.ok) {
           throw new Error(`Could not find data for ${username}`);
         }
@@ -48,7 +51,7 @@ const App = () => {
     };
 
     fetchWorkoutData();
-  }, [username, baseURL]);
+  }, [username]);
 
   const handleSelectDate = (date) => {
     setSelectedDate(date);
@@ -62,6 +65,48 @@ const App = () => {
     setSelectedTitle(title);
   };
 
+  const handleIncrement = (date, title) => {
+    setFrequencyCounts(prevCounts => {
+      const workoutKey = `${date}-${title}`;
+      const currentWorkout = workoutData.find(w => w.date === date);
+      const currentWorkoutItem = currentWorkout.workout.find(w => w.title === title);
+      const frequency = currentWorkoutItem ? currentWorkoutItem.frequency : 1;
+      const count = prevCounts[workoutKey] || 0;
+
+      if (count < frequency) {
+        const updatedCounts = {
+          ...prevCounts,
+          [workoutKey]: count + 1
+        };
+
+        if (count + 1 === frequency) {
+          setShowConfetti(true);
+          setTimeout(() => setShowConfetti(false), 5000);
+        }
+
+        return updatedCounts;
+      }
+
+      return prevCounts;
+    });
+  };
+
+  const handleDecrement = (date, title) => {
+    setFrequencyCounts(prevCounts => {
+      const workoutKey = `${date}-${title}`;
+      const count = prevCounts[workoutKey] || 0;
+
+      if (count > 0) {
+        return {
+          ...prevCounts,
+          [workoutKey]: count - 1
+        };
+      }
+
+      return prevCounts;
+    });
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -73,16 +118,35 @@ const App = () => {
   const currentWorkout = workoutData.find(workout => workout.date === selectedDate);
   const workout = currentWorkout ? currentWorkout.workout.find(w => w.title === selectedTitle) : null;
 
+  const renderFrequencyCounter = () => {
+    if (!workout) return null;
+
+    const workoutKey = `${currentWorkout.date}-${workout.title}`;
+    const count = frequencyCounts[workoutKey] || 0;
+    const frequency = workout.frequency || 1;
+
+    return (
+      <div>
+      <p className="mb-0">Frequency control</p>
+      <div className="d-flex align-items-center justify-content-center">
+        <Button variant="primary" onClick={() => handleDecrement(currentWorkout.date, workout.title)}>-</Button>
+        <span className="mx-2">{count} / {frequency}</span>
+        <Button variant="primary" onClick={() => handleIncrement(currentWorkout.date, workout.title)}>+</Button>
+      </div>
+      </div>
+    );
+  };
+
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100 mt-3 mt-md-0">
       <h1>Workout Plan</h1>
-      {currentWorkout && <h2>Start date: {dayjs(currentWorkout.date).format('DD-MM-YYYY')}</h2>}
+      {currentWorkout && <h2>Started at {dayjs(currentWorkout.date).format('DD-MM-YYYY')}</h2>}
       {currentWorkout && <p>{currentWorkout.notes}</p>}
-      <div className="d-flex w-100 justify-content-center justify-content-md-end mb-3">
+      <div className="d-flex w-100 justify-content-md-end justify-content-center mb-3">
         <DropdownButton id="dropdown-date-button" title={dayjs(selectedDate).format('DD-MM-YYYY')} className="me-3">
           {workoutData.map((w) => (
             <Dropdown.Item key={w.date} onClick={() => handleSelectDate(w.date)}>
-              Start date: {dayjs(w.date).format('DD-MM-YYYY')}
+              Started at {dayjs(w.date).format('DD-MM-YYYY')}
             </Dropdown.Item>
           ))}
         </DropdownButton>
@@ -94,6 +158,7 @@ const App = () => {
           ))}
         </DropdownButton>
       </div>
+      {renderFrequencyCounter()}
       {workout && (
         <Table striped bordered hover className="mt-3">
           <thead>
@@ -116,6 +181,7 @@ const App = () => {
           </tbody>
         </Table>
       )}
+      {showConfetti && <Confetti />}
     </Container>
   );
 };

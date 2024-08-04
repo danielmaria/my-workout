@@ -5,6 +5,7 @@
         "workout": [
             {
                 "title": "Peito e abdominal",
+                "frequency": 4,
                 "exercises": [
                     {"name": "A. Supino reto maquina", "series": 3, "repetitions": 10, "weight": 5},
                     {"name": "A. Rosca direta", "series": 3, "repetitions": 10, "weight": 5},
@@ -18,6 +19,7 @@
             },
             {
                 "title": "Quads",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Cadeira extensora", "series": 3, "repetitions": 10, "weight": 40},
                     {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": 60},
@@ -27,6 +29,7 @@
             },
             {
                 "title": "Costas",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Remana maquina triangulo", "series": 3, "repetitions": 10, "weight": 30},
                     {"name": "Remana curvada", "series": 3, "repetitions": 10, "weight": 5},
@@ -38,6 +41,7 @@
             },
             {
                 "title": "Posterior",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Flexora em pé", "series": 3, "repetitions": 12, "weight": 10},
                     {"name": "Stiff", "series": 3, "repetitions": 12, "weight": 10},
@@ -54,6 +58,7 @@
         "workout": [
             {
                 "title": "Peito e abdominal",
+                "frequency": 4,
                 "exercises": [
                     {"name": "A. Supino reto maquina", "series": 3, "repetitions": 8, "weight": 10},
                     {"name": "A. Rosca direta", "series": 3, "repetitions": 8, "weight": 6},
@@ -67,6 +72,7 @@
             },
             {
                 "title": "Quads",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Cadeira extensora", "series": 3, "repetitions": 8, "weight": 45},
                     {"name": "Legpress 45", "series": 3, "repetitions": 8, "weight": "60/60/70"},
@@ -76,6 +82,7 @@
             },
             {
                 "title": "Costas",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Remana maquina triangulo", "series": 3, "repetitions": 8, "weight": 35},
                     {"name": "Puxada pegada neutra (barra nova)", "series": 3, "repetitions": 8, "weight": 35},
@@ -87,6 +94,7 @@
             },
             {
                 "title": "Posterior",
+                "frequency": 4,
                 "exercises": [
                     {"name": "Flexora em pé", "series": 3, "repetitions": 8, "weight": 15},
                     {"name": "Stiff", "series": 3, "repetitions": 8, "weight": 10},
