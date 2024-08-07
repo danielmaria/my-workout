@@ -41,7 +41,17 @@ const App = () => {
         setSelectedDate(nearestPastDate);
         const initialWorkout = data.find(workout => workout.date === nearestPastDate);
         if (initialWorkout && initialWorkout.workout.length > 0) {
-          setSelectedTitle(initialWorkout.workout[0].title);
+          const savedCounts = JSON.parse(localStorage.getItem('frequencyCounts')) || {};
+          const leastFrequentWorkout = initialWorkout.workout.reduce((leastFrequent, currentWorkout) => {
+            const currentKey = `${nearestPastDate}-${currentWorkout.title}`;
+            const currentCount = savedCounts[currentKey] || 0;
+            const leastFrequentKey = `${nearestPastDate}-${leastFrequent.title}`;
+            const leastFrequentCount = savedCounts[leastFrequentKey] || 0;
+
+            return currentCount < leastFrequentCount ? currentWorkout : leastFrequent;
+          }, initialWorkout.workout[0]);
+
+          setSelectedTitle(leastFrequentWorkout.title);
         }
         setLoading(false);
       } catch (err) {

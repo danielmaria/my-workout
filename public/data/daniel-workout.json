@@ -4,15 +4,14 @@
         "notes" : "",
         "workout": [
             {
-                "title": "Peito e ombro",
+                "title": "Costas",
                 "frequency": 4,
                 "exercises": [
-                    {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 35},
-                    {"name": "Supino inclinado com halteres", "series": 3, "repetitions": 12, "weight": 12},
-                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 35},
-                    {"name": "Parallel graviton", "series": 3, "repetitions": 12, "weight": 21},
-                    {"name": "Elevacao lateral", "series": 3, "repetitions": 12, "weight": 8},
-                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 15}
+                    {"name": "Pullover", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 12, "weight": 50},
+                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 12, "weight": 40},
+                    {"name": "Remana com barra", "series": 3, "repetitions": 12, "weight": 10},
+                    {"name": "Remada maquina", "series": 3, "repetitions": 12, "weight": 20}
                 ]
             },
             {
@@ -26,16 +25,17 @@
                 ]
             },
             {
-                "title": "Costas",
+                "title": "Peito e ombro",
                 "frequency": 4,
                 "exercises": [
-                    {"name": "Pullover", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 12, "weight": 50},
-                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 12, "weight": 40},
-                    {"name": "Remana com barra", "series": 3, "repetitions": 12, "weight": 10},
-                    {"name": "Remada maquina", "series": 3, "repetitions": 12, "weight": 20}
+                    {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 35},
+                    {"name": "Supino inclinado com halteres", "series": 3, "repetitions": 12, "weight": 12},
+                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 35},
+                    {"name": "Parallel graviton", "series": 3, "repetitions": 12, "weight": 21},
+                    {"name": "Elevacao lateral", "series": 3, "repetitions": 12, "weight": 8},
+                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 15}
                 ]
-            },
+            }, 
             {
                 "title": "Posterior",
                 "frequency": 4,
