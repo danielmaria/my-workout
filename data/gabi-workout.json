@@ -5,7 +5,7 @@
         "workout": [
             {
                 "title": "Peito e costas",
-                "frequency": 8,
+                "frequency": 4,
                 "exercises": [
                     {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 10},
                     {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 10},
@@ -16,12 +16,12 @@
             },
             {
                 "title": "Pernas",
-                "frequency": 8,
+                "frequency": 4,
                 "exercises": [
-                    {"name": "Extensao", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Flexao", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": "20/20/30"},
-                    {"name": "Agachamento", "series": 4, "repetitions": 12, "weight": "Apenas a barra"},
+                    {"name": "Extensao sentada", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Flexao em pé", "series": 3, "repetitions": 12, "weight": 5},
+                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": 20},
+                    {"name": "Agachamento", "series": 3, "repetitions": 12, "weight": "Apenas a barra"},
                     {"name": "Stiff", "series": 3, "repetitions": 12, "weight": "Apenas a barra"}
                 ]
             }
