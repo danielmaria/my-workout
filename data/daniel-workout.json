@@ -1,52 +1,122 @@
 [
-    {
-        "date": "2024-08-05",
-        "notes" : "",
-        "workout": [
-            {
-                "title": "Costas",
-                "frequency": 4,
-                "exercises": [
-                    {"name": "Pullover", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Puxada maquina pegada neutra", "series": 3, "repetitions": 12, "weight": 50},
-                    {"name": "Remana maquina triangulo", "series": 3, "repetitions": 12, "weight": 40},
-                    {"name": "Remana com barra", "series": 3, "repetitions": 12, "weight": 10},
-                    {"name": "Remada maquina", "series": 3, "repetitions": 12, "weight": 20}
-                ]
-            },
-            {
-                "title": "Pernas",
-                "frequency": 4,
-                "exercises": [
-                    {"name": "Extensao", "series": 3, "repetitions": 12, "weight": 50},
-                    {"name": "Legpress 45", "series": 3, "repetitions": 12, "weight": "60/70/80"},
-                    {"name": "Agachamento", "series": 4, "repetitions": 12, "weight": "15/20/20/25"},
-                    {"name": "Afundo", "series": 3, "repetitions": 12, "weight": 10}
-                ]
-            },
-            {
-                "title": "Peito e ombro",
-                "frequency": 4,
-                "exercises": [
-                    {"name": "Supino reto maquina", "series": 3, "repetitions": 12, "weight": 35},
-                    {"name": "Supino inclinado com halteres", "series": 3, "repetitions": 12, "weight": 12},
-                    {"name": "Fly", "series": 3, "repetitions": 12, "weight": 35},
-                    {"name": "Parallel graviton", "series": 3, "repetitions": 12, "weight": 21},
-                    {"name": "Elevacao lateral", "series": 3, "repetitions": 12, "weight": 8},
-                    {"name": "Desenvolvimento maquina", "series": 3, "repetitions": 12, "weight": 15}
-                ]
-            }, 
-            {
-                "title": "Posterior",
-                "frequency": 4,
-                "exercises": [
-                    {"name": "Flexora em pé", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Elevacao de quadril", "series": 3, "repetitions": 12, "weight": 25},
-                    {"name": "Stiff", "series": 3, "repetitions": 12, "weight": 10},
-                    {"name": "Agachamento sumô", "series": 3, "repetitions": 12, "weight": 20},
-                    {"name": "Abdutor", "series": 3, "repetitions": 12, "weight": 60}
-                ]
-            }
+  {
+    "date": "2024-08-05",
+    "notes": "",
+    "workout": [
+      {
+        "title": "Costas",
+        "frequency": 4,
+        "exercises": [
+          { "name": "Pullover", "series": 3, "repetitions": 12, "weight": 20 },
+          {
+            "name": "Puxada maquina pegada neutra",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 50
+          },
+          {
+            "name": "Remana maquina triangulo",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 40
+          },
+          {
+            "name": "Remana com barra",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 10
+          },
+          {
+            "name": "Remada maquina",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 20
+          }
         ]
-    }
+      },
+      {
+        "title": "Pernas",
+        "frequency": 4,
+        "exercises": [
+          { "name": "Extensao", "series": 3, "repetitions": 12, "weight": 50 },
+          {
+            "name": "Legpress 45",
+            "series": 3,
+            "repetitions": 12,
+            "weight": "60/70/80"
+          },
+          {
+            "name": "Agachamento",
+            "series": 4,
+            "repetitions": 12,
+            "weight": "15/20/20/25"
+          },
+          { "name": "Afundo", "series": 3, "repetitions": 12, "weight": 10 }
+        ]
+      },
+      {
+        "title": "Peito e ombro",
+        "frequency": 4,
+        "exercises": [
+          {
+            "name": "Supino reto maquina",
+            "series": 3,
+            "repetitions": 10,
+            "weight": 30
+          },
+          {
+            "name": "Supino inclinado com halteres",
+            "series": 3,
+            "repetitions": 10,
+            "weight": 18
+          },
+          { "name": "Fly", "series": 3, "repetitions": 10, "weight": 40 },
+          {
+            "name": "Parallel graviton",
+            "series": 3,
+            "repetitions": 10,
+            "weight": 21
+          },
+          {
+            "name": "Elevacao lateral",
+            "series": 3,
+            "repetitions": 10,
+            "weight": 8
+          },
+          {
+            "name": "Desenvolvimento maquina",
+            "series": 3,
+            "repetitions": 10,
+            "weight": 15
+          }
+        ]
+      },
+      {
+        "title": "Posterior",
+        "frequency": 4,
+        "exercises": [
+          {
+            "name": "Flexora em pé",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 20
+          },
+          {
+            "name": "Elevacao de quadril",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 25
+          },
+          { "name": "Stiff", "series": 3, "repetitions": 12, "weight": 10 },
+          {
+            "name": "Agachamento sumô",
+            "series": 3,
+            "repetitions": 12,
+            "weight": 20
+          },
+          { "name": "Abdutor", "series": 3, "repetitions": 12, "weight": 60 }
+        ]
+      }
+    ]
+  }
 ]
