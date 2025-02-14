@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Container,
   Table,
   DropdownButton,
   Dropdown,
   Button,
-} from "react-bootstrap";
-import dayjs from "dayjs";
-import Confetti from "react-confetti";
+} from 'react-bootstrap';
+import dayjs from 'dayjs';
+import Confetti from 'react-confetti';
 
 const App = () => {
   const [searchParams] = useSearchParams();
-  const username = searchParams.get("workout");
+  const username = searchParams.get('workout');
   const [workoutData, setWorkoutData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTitle, setSelectedTitle] = useState("");
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('');
   const [frequencyCounts, setFrequencyCounts] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,42 +26,62 @@ const App = () => {
 
   useEffect(() => {
     const savedCounts =
-      JSON.parse(localStorage.getItem("frequencyCounts")) || {};
+      JSON.parse(localStorage.getItem('frequencyCounts')) || {};
     setFrequencyCounts(savedCounts);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("frequencyCounts", JSON.stringify(frequencyCounts));
+    localStorage.setItem('frequencyCounts', JSON.stringify(frequencyCounts));
   }, [frequencyCounts]);
 
   useEffect(() => {
     const fetchWorkoutData = async () => {
       try {
-        const response = await fetch(
-          `/my-workout/data/${username}-workout.json`
+        // Primeiro, buscamos o index.json que lista os arquivos disponíveis
+        const indexResponse = await fetch(
+          `/my-workout/data/${username}/index.json`
         );
-        if (!response.ok) {
-          throw new Error(`Could not find data for ${username}`);
+        if (!indexResponse.ok) {
+          throw new Error(`Could not find index for ${username}`);
         }
-        const data = await response.json();
-        setWorkoutData(data);
+
+        const { files } = await indexResponse.json();
+
+        const workoutPromises = files.map(async (file) => {
+          const res = await fetch(`/my-workout/data/${username}/${file}`);
+          return res.ok ? res.json() : [];
+        });
+
+        const workoutsArray = (await Promise.all(workoutPromises)).flat();
+
+        if (workoutsArray.length === 0) {
+          throw new Error(`No workout data found for ${username}`);
+        }
+
+        const sortedWorkouts = workoutsArray.sort((a, b) =>
+          dayjs(a.date).isAfter(dayjs(b.date)) ? 1 : -1
+        );
+
+        setWorkoutData(sortedWorkouts);
 
         const today = dayjs();
-        const pastDates = data.filter((workout) =>
+        const pastDates = sortedWorkouts.filter((workout) =>
           dayjs(workout.date).isBefore(today)
         );
         const nearestPastDate =
           pastDates.length > 0
             ? pastDates[pastDates.length - 1].date
-            : data[0].date;
+            : sortedWorkouts[0].date;
 
         setSelectedDate(nearestPastDate);
-        const initialWorkout = data.find(
+
+        const initialWorkout = sortedWorkouts.find(
           (workout) => workout.date === nearestPastDate
         );
+
         if (initialWorkout && initialWorkout.workout.length > 0) {
           const savedCounts =
-            JSON.parse(localStorage.getItem("frequencyCounts")) || {};
+            JSON.parse(localStorage.getItem('frequencyCounts')) || {};
           const leastFrequentWorkout = initialWorkout.workout.reduce(
             (leastFrequent, currentWorkout) => {
               const currentKey = `${nearestPastDate}-${currentWorkout.title}`;
@@ -78,6 +98,7 @@ const App = () => {
 
           setSelectedTitle(leastFrequentWorkout.title);
         }
+
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -223,19 +244,19 @@ const App = () => {
 
     return (
       <div>
-        <p className="mb-0 text-center">Frequency control</p>
-        <div className="d-flex align-items-center justify-content-center">
+        <p className='mb-0 text-center'>Frequency control</p>
+        <div className='d-flex align-items-center justify-content-center'>
           <Button
-            variant="primary"
+            variant='primary'
             onClick={() => handleDecrement(currentWorkout.date, workout.title)}
           >
             -
           </Button>
-          <span className="mx-2">
+          <span className='mx-2'>
             {count} / {frequency}
           </span>
           <Button
-            variant="primary"
+            variant='primary'
             onClick={() => handleIncrement(currentWorkout.date, workout.title)}
           >
             +
@@ -247,32 +268,32 @@ const App = () => {
 
   return (
     <Container
-      className="d-flex flex-column align-items-center justify-content-center min-vh-100 mt-3 mt-md-0"
+      className='d-flex flex-column align-items-center justify-content-center min-vh-100 mt-3 mt-md-0'
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <h1>Workout Plan</h1>
       {currentWorkout && (
-        <h2>Started at {dayjs(currentWorkout.date).format("DD-MM-YYYY")}</h2>
+        <h2>Started at {dayjs(currentWorkout.date).format('DD-MM-YYYY')}</h2>
       )}
       {currentWorkout && <p>{currentWorkout.notes}</p>}
-      <div className="d-flex w-100 justify-content-md-end justify-content-center mb-3">
+      <div className='d-flex w-100 justify-content-md-end justify-content-center mb-3'>
         <DropdownButton
-          id="dropdown-date-button"
-          title={dayjs(selectedDate).format("DD-MM-YYYY")}
-          className="me-3"
+          id='dropdown-date-button'
+          title={dayjs(selectedDate).format('DD-MM-YYYY')}
+          className='me-3'
         >
           {workoutData.map((w) => (
             <Dropdown.Item
               key={w.date}
               onClick={() => handleSelectDate(w.date)}
             >
-              Started at {dayjs(w.date).format("DD-MM-YYYY")}
+              Started at {dayjs(w.date).format('DD-MM-YYYY')}
             </Dropdown.Item>
           ))}
         </DropdownButton>
-        <DropdownButton id="dropdown-title-button" title={selectedTitle}>
+        <DropdownButton id='dropdown-title-button' title={selectedTitle}>
           {currentWorkout &&
             currentWorkout.workout.map((w) => (
               <Dropdown.Item
@@ -283,27 +304,27 @@ const App = () => {
               </Dropdown.Item>
             ))}
         </DropdownButton>
-        <Button onClick={onPressRefresh} className="ms-3">
+        <Button onClick={onPressRefresh} className='ms-3'>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-arrow-clockwise"
-            viewBox="0 0 16 16"
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-arrow-clockwise'
+            viewBox='0 0 16 16'
           >
             <path
-              fillRule="evenodd"
-              d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"
+              fillRule='evenodd'
+              d='M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z'
             />
-            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+            <path d='M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466' />
           </svg>
         </Button>
       </div>
-      <div style={{ opacity, transition: "opacity 0.3s ease-in-out" }}>
+      <div style={{ opacity, transition: 'opacity 0.3s ease-in-out' }}>
         {renderFrequencyCounter()}
         {workout && (
-          <Table striped bordered hover className="mt-3">
+          <Table striped bordered hover className='mt-3'>
             <thead>
               <tr>
                 <th>Exercise</th>

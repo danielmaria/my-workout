@@ -1,0 +1,154 @@
+{
+  "date": "2025-02-03",
+  "notes": "",
+  "workout": [
+    {
+      "title": "Peito e abdominal",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "A. Supino reto maquina (pegada baixa)",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 15
+        },
+        {
+          "name": "A. Rosca direta sentada",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 6
+        },
+        {
+          "name": "B. Desenvolvimento dumbell",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 6
+        },
+        {
+          "name": "B. Biceps sentado 45 graus",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 8
+        },
+        {
+          "name": "C. Biceps scott maquina",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 8
+        },
+        {
+          "name": "C. Elevacao lateral",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 6
+        },
+        {
+          "name": "D. Prancha",
+          "series": 3,
+          "repetitions": "40seg",
+          "weight": 0
+        },
+        {
+          "name": "D. Abdominal bozu",
+          "series": 3,
+          "repetitions": 15,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "title": "Quads",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Cadeira extensora",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 45
+        },
+        {
+          "name": "Legpress 45",
+          "series": 4,
+          "repetitions": 12,
+          "weight": "40"
+        },
+        { "name": "Agachamento", "series": 3, "repetitions": 12, "weight": 10 },
+        { "name": "Afundo", "series": 3, "repetitions": 12, "weight": 5 }
+      ]
+    },
+    {
+      "title": "Costas",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Puxada pegada fechada",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 35
+        },
+        {
+          "name": "Remada curvada cavalinho",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 35
+        },
+        {
+          "name": "A. Pulldown",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 10
+        },
+        {
+          "name": "A. Triceps corda",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 10
+        },
+        {
+          "name": "B. Parallel maquina",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 15
+        },
+        {
+          "name": "B. Panturrilha no degrau",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 0
+        },
+        {
+          "name": "Maquina panturrilha",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 60
+        }
+      ]
+    },
+    {
+      "title": "Posterior de coxa",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Flexora em pé",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 5
+        },
+        { "name": "Stiff", "series": 3, "repetitions": 12, "weight": 10 },
+        {
+          "name": "Elevacao de quadril",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 25
+        },
+        {
+          "name": "Adutor",
+          "series": 3,
+          "repetitions": 20,
+          "weight": 30
+        },
+        { "name": "Abdutor", "series": 3, "repetitions": 12, "weight": 35 }
+      ]
+    }
+  ]
+}
