@@ -6,9 +6,11 @@ import {
   DropdownButton,
   Dropdown,
   Button,
+  Form,
 } from 'react-bootstrap';
 import dayjs from 'dayjs';
 import Confetti from 'react-confetti';
+import ModalConfirmationComponent from './ModalConfirmationComponent';
 
 const App = () => {
   const [searchParams] = useSearchParams();
@@ -23,6 +25,7 @@ const App = () => {
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [opacity, setOpacity] = useState(1);
+  const { ModalUI, handleShow } = ModalConfirmationComponent();
 
   useEffect(() => {
     const savedCounts =
@@ -36,78 +39,140 @@ const App = () => {
 
   useEffect(() => {
     const fetchWorkoutData = async () => {
-      try {
-        // Primeiro, buscamos o index.json que lista os arquivos disponíveis
-        const indexResponse = await fetch(
-          `/my-workout/data/${username}/index.json`
-        );
-        if (!indexResponse.ok) {
-          throw new Error(`Could not find index for ${username}`);
-        }
-
-        const { files } = await indexResponse.json();
-
-        const workoutPromises = files.map(async (file) => {
-          const res = await fetch(`/my-workout/data/${username}/${file}`);
-          return res.ok ? res.json() : [];
-        });
-
-        const workoutsArray = (await Promise.all(workoutPromises)).flat();
-
-        if (workoutsArray.length === 0) {
-          throw new Error(`No workout data found for ${username}`);
-        }
-
-        const sortedWorkouts = workoutsArray.sort((a, b) =>
-          dayjs(a.date).isAfter(dayjs(b.date)) ? 1 : -1
-        );
-
-        setWorkoutData(sortedWorkouts);
-
-        const today = dayjs();
-        const pastDates = sortedWorkouts.filter((workout) =>
-          dayjs(workout.date).isBefore(today)
-        );
-        const nearestPastDate =
-          pastDates.length > 0
-            ? pastDates[pastDates.length - 1].date
-            : sortedWorkouts[0].date;
-
-        setSelectedDate(nearestPastDate);
-
-        const initialWorkout = sortedWorkouts.find(
-          (workout) => workout.date === nearestPastDate
-        );
-
-        if (initialWorkout && initialWorkout.workout.length > 0) {
-          const savedCounts =
-            JSON.parse(localStorage.getItem('frequencyCounts')) || {};
-          const leastFrequentWorkout = initialWorkout.workout.reduce(
-            (leastFrequent, currentWorkout) => {
-              const currentKey = `${nearestPastDate}-${currentWorkout.title}`;
-              const currentCount = savedCounts[currentKey] || 0;
-              const leastFrequentKey = `${nearestPastDate}-${leastFrequent.title}`;
-              const leastFrequentCount = savedCounts[leastFrequentKey] || 0;
-
-              return currentCount < leastFrequentCount
-                ? currentWorkout
-                : leastFrequent;
-            },
-            initialWorkout.workout[0]
+      var workoutsArray = JSON.parse(localStorage.getItem('workoutData')) || [];
+      if (workoutsArray.length === 0) {
+        try {
+          const indexResponse = await fetch(
+            `/my-workout/data/${username}/index.json`
           );
+          if (!indexResponse.ok) {
+            throw new Error(`Could not find index for ${username}`);
+          }
 
-          setSelectedTitle(leastFrequentWorkout.title);
+          const { files } = await indexResponse.json();
+
+          const workoutPromises = files.map(async (file) => {
+            const res = await fetch(`/my-workout/data/${username}/${file}`);
+            return res.ok ? res.json() : [];
+          });
+
+          workoutsArray = (await Promise.all(workoutPromises)).flat();
+        } catch (err) {
+          setError(err.message);
+          setLoading(false);
         }
-
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
       }
+
+      if (workoutsArray.length === 0) {
+        handleShow(
+          'Warning',
+          'Something went wrong while loading your workout.'
+        );
+        return;
+        // throw new Error(`No workout data found for ${username}`);
+      }
+
+      const sortedWorkouts = workoutsArray.sort((a, b) =>
+        dayjs(a.date).isAfter(dayjs(b.date)) ? 1 : -1
+      );
+
+      setWorkoutData(sortedWorkouts);
+
+      const today = dayjs();
+      const pastDates = sortedWorkouts.filter((workout) =>
+        dayjs(workout.date).isBefore(today)
+      );
+      const nearestPastDate =
+        pastDates.length > 0
+          ? pastDates[pastDates.length - 1].date
+          : sortedWorkouts[0].date;
+
+      setSelectedDate(nearestPastDate);
+
+      const initialWorkout = sortedWorkouts.find(
+        (workout) => workout.date === nearestPastDate
+      );
+
+      if (initialWorkout && initialWorkout.workout.length > 0) {
+        const savedCounts =
+          JSON.parse(localStorage.getItem('frequencyCounts')) || {};
+        const leastFrequentWorkout = initialWorkout.workout.reduce(
+          (leastFrequent, currentWorkout) => {
+            const currentKey = `${nearestPastDate}-${currentWorkout.title}`;
+            const currentCount = savedCounts[currentKey] || 0;
+            const leastFrequentKey = `${nearestPastDate}-${leastFrequent.title}`;
+            const leastFrequentCount = savedCounts[leastFrequentKey] || 0;
+
+            return currentCount < leastFrequentCount
+              ? currentWorkout
+              : leastFrequent;
+          },
+          initialWorkout.workout[0]
+        );
+
+        setSelectedTitle(leastFrequentWorkout.title);
+      }
+
+      localStorage.setItem('workoutData', JSON.stringify(sortedWorkouts));
+      setLoading(false);
     };
 
     fetchWorkoutData();
   }, [username]);
+
+  const handleEditExercise = (exerciseIndex, field, value) => {
+    setWorkoutData((prevData) => {
+      const updatedData = prevData.map((workout) => {
+        if (workout.date === selectedDate) {
+          return {
+            ...workout,
+            workout: workout.workout.map((w) => {
+              if (w.title === selectedTitle) {
+                return {
+                  ...w,
+                  exercises: w.exercises.map((exercise, idx) => {
+                    if (idx === exerciseIndex) {
+                      return { ...exercise, [field]: value };
+                    }
+                    return exercise;
+                  }),
+                };
+              }
+              return w;
+            }),
+          };
+        }
+        return workout;
+      });
+      localStorage.setItem('workoutData', JSON.stringify(updatedData));
+      return updatedData;
+    });
+  };
+
+  const handleAddExercise = () => {
+    setWorkoutData((prev) => {
+      const updated = [...prev];
+      const workout = updated.find((w) => w.date === selectedDate);
+      if (workout) {
+        workout.workout
+          .find((w) => w.title === selectedTitle)
+          .exercises.push({ name: '', series: 0, repetitions: 0, weight: 0 });
+      }
+      return updated;
+    });
+  };
+
+  const handleExport = () => {
+    const workout = workoutData.find((w) => w.date === selectedDate);
+    if (workout) {
+      const json = JSON.stringify(workout, null, 2);
+      navigator.clipboard.writeText(json);
+      handleShow(
+        'Exported Training',
+        'The workout has been copied to the clipboard successfully!'
+      );
+    }
+  };
 
   const handleSelectDate = (date) => {
     setSelectedDate(date);
@@ -121,7 +186,12 @@ const App = () => {
     setSelectedTitle(title);
   };
 
-  const onPressRefresh = () => {
+  const onPressRefresh = async () => {
+    await handleShow(
+      'Important',
+      'The changes you made have been cleared and your workout has been updated with the database. If you need your workout, with updates, it has been copied to your clipboard.'
+    );
+    localStorage.removeItem('workoutData');
     window.location.reload(false);
   };
 
@@ -225,7 +295,7 @@ const App = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div> {ModalUI} </div>;
   }
 
   const currentWorkout = workoutData.find(
@@ -245,7 +315,7 @@ const App = () => {
     return (
       <div>
         <p className='mb-0 text-center'>Frequency control</p>
-        <div className='d-flex align-items-center justify-content-center'>
+        <div className='d-flex align-items-center justify-content-center mb-3'>
           <Button
             variant='primary'
             onClick={() => handleDecrement(currentWorkout.date, workout.title)}
@@ -324,26 +394,69 @@ const App = () => {
       <div style={{ opacity, transition: 'opacity 0.3s ease-in-out' }}>
         {renderFrequencyCounter()}
         {workout && (
-          <Table striped bordered hover className='mt-3'>
-            <thead>
-              <tr>
-                <th>Exercise</th>
-                <th>Series</th>
-                <th>Repetitions</th>
-                <th>Weight</th>
-              </tr>
-            </thead>
-            <tbody>
-              {workout.exercises.map((exercise, idx) => (
-                <tr key={idx}>
-                  <td>{exercise.name}</td>
-                  <td>{exercise.series}</td>
-                  <td>{exercise.repetitions}</td>
-                  <td>{exercise.weight}</td>
+          <>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th style={{ width: '50%' }}>Exercise</th>
+                  <th style={{ width: '15%' }}>Series</th>
+                  <th style={{ width: '15%' }}>Repetitions</th>
+                  <th style={{ width: '20%' }}>Weight</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {workout.exercises.map((exercise, idx) => (
+                  <tr key={idx}>
+                    <td>
+                      <Form.Control
+                        type='text'
+                        value={exercise.name}
+                        onChange={(e) =>
+                          handleEditExercise(idx, 'name', e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <Form.Control
+                        type='number'
+                        value={exercise.series}
+                        onChange={(e) =>
+                          handleEditExercise(idx, 'series', e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <Form.Control
+                        type='number'
+                        value={exercise.repetitions}
+                        onChange={(e) =>
+                          handleEditExercise(idx, 'repetitions', e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <Form.Control
+                        type='number'
+                        value={exercise.weight}
+                        onChange={(e) =>
+                          handleEditExercise(idx, 'weight', e.target.value)
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            <div className='d-flex w-100 justify-content-md-end justify-content-center mb-3'>
+              <Button className='mt-2' onClick={handleAddExercise}>
+                Add Exercise
+              </Button>
+              <Button className='mt-2 ms-2' onClick={handleExport}>
+                Export Workout
+              </Button>
+              {ModalUI}
+            </div>
+          </>
         )}
       </div>
       {showConfetti && <Confetti />}
