@@ -11,13 +11,13 @@
           "name": "Puxada maquina pegada neutra",
           "series": 3,
           "repetitions": 12,
-          "weight": 45
+          "weight": 55
         },
         {
           "name": "Remana maquina triangulo",
           "series": 3,
           "repetitions": 12,
-          "weight": 40
+          "weight": 45
         },
         {
           "name": "Remana com barra cavalinho",
@@ -29,7 +29,7 @@
           "name": "Remada maquina unilateral",
           "series": 3,
           "repetitions": 12,
-          "weight": 40
+          "weight": 55
         }
       ]
     },
@@ -42,13 +42,13 @@
           "name": "Legpress 45",
           "series": 3,
           "repetitions": 12,
-          "weight": "40/40/60"
+          "weight": 60
         },
         {
           "name": "Agachamento",
           "series": 3,
           "repetitions": 12,
-          "weight": "10/10/15/15"
+          "weight": 20
         },
         { "name": "Afundo smith", "series": 3, "repetitions": 12, "weight": 5 }
       ]
@@ -61,7 +61,7 @@
           "name": "Supino reto maquina",
           "series": 3,
           "repetitions": 10,
-          "weight": 30
+          "weight": 45
         },
         {
           "name": "Supino inclinado com halteres",
@@ -74,7 +74,7 @@
           "name": "Parallel graviton",
           "series": 3,
           "repetitions": 10,
-          "weight": 4
+          "weight": 15
         },
         {
           "name": "Elevacao lateral",
@@ -111,9 +111,9 @@
           "name": "Adutor",
           "series": 3,
           "repetitions": 12,
-          "weight": 30
+          "weight": 50
         },
-        { "name": "Abdutor", "series": 3, "repetitions": 12, "weight": 35 }
+        { "name": "Abdutor", "series": 3, "repetitions": 12, "weight": 55 }
       ]
     }
   ]
