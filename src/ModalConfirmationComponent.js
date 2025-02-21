@@ -9,13 +9,13 @@ const ModalConfirmationComponent = () => {
     onConfirm: null,
   });
 
-  const handleShow = (title, description) => {
+  const handleShowConfirmationModal = (title, description) => {
     return new Promise((resolve) => {
       setModalConfig({ show: true, title, description, onConfirm: resolve });
     });
   };
 
-  const handleClose = () => {
+  const handleCloseConfirmationModal = () => {
     if (modalConfig.onConfirm) {
       modalConfig.onConfirm();
     }
@@ -29,19 +29,23 @@ const ModalConfirmationComponent = () => {
 
   return {
     ModalUI: (
-      <Modal show={modalConfig.show} onHide={handleClose} centered>
+      <Modal
+        show={modalConfig.show}
+        onHide={handleCloseConfirmationModal}
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>{modalConfig.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{modalConfig.description}</Modal.Body>
         <Modal.Footer>
-          <Button variant='primary' onClick={handleClose}>
+          <Button variant='primary' onClick={handleCloseConfirmationModal}>
             OK
           </Button>
         </Modal.Footer>
       </Modal>
     ),
-    handleShow,
+    handleShowConfirmationModal: handleShowConfirmationModal,
   };
 };
 

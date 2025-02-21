@@ -25,7 +25,7 @@ const App = () => {
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [opacity, setOpacity] = useState(1);
-  const { ModalUI, handleShow } = ModalConfirmationComponent();
+  const { ModalUI, handleShowConfirmationModal } = ModalConfirmationComponent();
 
   useEffect(() => {
     const savedCounts =
@@ -64,12 +64,11 @@ const App = () => {
       }
 
       if (workoutsArray.length === 0) {
-        handleShow(
+        handleShowConfirmationModal(
           'Warning',
           'Something went wrong while loading your workout.'
         );
         return;
-        // throw new Error(`No workout data found for ${username}`);
       }
 
       const sortedWorkouts = workoutsArray.sort((a, b) =>
@@ -118,7 +117,7 @@ const App = () => {
     };
 
     fetchWorkoutData();
-  }, [username]);
+  }, [username, handleShowConfirmationModal]);
 
   const handleEditExercise = (exerciseIndex, field, value) => {
     setWorkoutData((prevData) => {
@@ -167,7 +166,7 @@ const App = () => {
     if (workout) {
       const json = JSON.stringify(workout, null, 2);
       navigator.clipboard.writeText(json);
-      handleShow(
+      handleShowConfirmationModal(
         'Exported Training',
         'The workout has been copied to the clipboard successfully!'
       );
@@ -187,7 +186,7 @@ const App = () => {
   };
 
   const onPressRefresh = async () => {
-    await handleShow(
+    await handleShowConfirmationModal(
       'Important',
       'The changes you made have been cleared and your workout has been updated with the database. If you need your workout, with updates, it has been copied to your clipboard.'
     );
