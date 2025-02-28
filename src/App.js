@@ -117,7 +117,7 @@ const App = () => {
     };
 
     fetchWorkoutData();
-  }, [username, handleShowConfirmationModal]);
+  }, [username]);
 
   const handleEditExercise = (exerciseIndex, field, value) => {
     setWorkoutData((prevData) => {
@@ -186,12 +186,17 @@ const App = () => {
   };
 
   const onPressRefresh = async () => {
-    await handleShowConfirmationModal(
-      'Important',
-      'The changes you made have been cleared and your workout has been updated with the database. If you need your workout, with updates, it has been copied to your clipboard.'
-    );
-    localStorage.removeItem('workoutData');
-    window.location.reload(false);
+    try {
+      await handleShowConfirmationModal(
+        'Important',
+        'The changes you made have been cleared and your workout has been updated with the database. If you need your workout, with updates, it has been copied to your clipboard.'
+      );
+
+      localStorage.removeItem('workoutData');
+      window.location.reload(false);
+    } catch (err) {
+      console.debug(err);
+    }
   };
 
   const handleIncrement = (date, title) => {
@@ -397,10 +402,10 @@ const App = () => {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th style={{ width: '50%' }}>Exercise</th>
-                  <th style={{ width: '15%' }}>Series</th>
-                  <th style={{ width: '15%' }}>Repetitions</th>
-                  <th style={{ width: '20%' }}>Weight</th>
+                  <th style={{ width: '70%' }}>Exercise</th>
+                  <th style={{ width: '10%' }}>Series</th>
+                  <th style={{ width: '10%' }}>Repetitions</th>
+                  <th style={{ width: '10%' }}>Weight</th>
                 </tr>
               </thead>
               <tbody>

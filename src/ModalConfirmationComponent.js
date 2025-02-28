@@ -7,23 +7,31 @@ const ModalConfirmationComponent = () => {
     title: '',
     description: '',
     onConfirm: null,
+    onCancel: null,
   });
 
   const handleShowConfirmationModal = (title, description) => {
-    return new Promise((resolve) => {
-      setModalConfig({ show: true, title, description, onConfirm: resolve });
+    return new Promise((resolve, reject) => {
+      setModalConfig({
+        show: true,
+        title,
+        description,
+        onConfirm: resolve,
+        onCancel: reject,
+      });
     });
   };
 
   const handleCloseConfirmationModal = () => {
-    if (modalConfig.onConfirm) {
-      modalConfig.onConfirm();
+    if (modalConfig.onCancel) {
+      modalConfig.onCancel();
     }
     setModalConfig({
       show: false,
       title: '',
       description: '',
       onConfirm: null,
+      onCancel: null,
     });
   };
 
@@ -39,8 +47,11 @@ const ModalConfirmationComponent = () => {
         </Modal.Header>
         <Modal.Body>{modalConfig.description}</Modal.Body>
         <Modal.Footer>
-          <Button variant='primary' onClick={handleCloseConfirmationModal}>
-            OK
+          <Button variant='secondary' onClick={handleCloseConfirmationModal}>
+            Cancel
+          </Button>
+          <Button variant='primary' onClick={modalConfig.onConfirm}>
+            Confirm
           </Button>
         </Modal.Footer>
       </Modal>
