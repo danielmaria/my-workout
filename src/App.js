@@ -205,7 +205,7 @@ const App = () => {
       localStorage.removeItem('workoutData');
       window.location.reload(false);
     } catch (err) {
-      console.debug(err);
+      //do nothing
     }
   };
 
