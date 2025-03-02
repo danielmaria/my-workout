@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   Container,
@@ -25,7 +25,17 @@ const App = () => {
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [opacity, setOpacity] = useState(1);
-  const { ModalUI, handleShowConfirmationModal } = ModalConfirmationComponent();
+  const {
+    ModalUI,
+    handleShowConfirmationModal: handleShowConfirmationModalFromModal,
+  } = ModalConfirmationComponent();
+
+  const handleShowConfirmationModal = useCallback(
+    (title, description) => {
+      handleShowConfirmationModalFromModal(title, description);
+    },
+    [handleShowConfirmationModalFromModal]
+  );
 
   useEffect(() => {
     const savedCounts =
