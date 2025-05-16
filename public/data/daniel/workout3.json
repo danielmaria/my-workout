@@ -1,0 +1,120 @@
+{
+  "date": "2025-05-19",
+  "notes": "",
+  "workout": [
+    {
+      "title": "Pernas",
+      "frequency": 4,
+      "exercises": [
+        { "name": "Extensao", "series": 3, "repetitions": 10, "weight": 55 },
+        {
+          "name": "Legpress 45",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 80
+        },
+        {
+          "name": "Agachamento",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 25
+        },
+        { "name": "Afundo smith", "series": 3, "repetitions": 10, "weight": 10 }
+      ]
+    },
+    {
+      "title": "Costas",
+      "frequency": 4,
+      "exercises": [
+        { "name": "Pullover", "series": 3, "repetitions": 10, "weight": 45 },
+        {
+          "name": "Puxada maquina pegada neutra",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 60
+        },
+        {
+          "name": "Remana maquina triangulo",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 45
+        },
+        {
+          "name": "Remana com barra cavalinho",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 30
+        },
+        {
+          "name": "Remada maquina unilateral <<<<",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 55
+        }
+      ]
+    },
+    {
+      "title": "Peito e ombro",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Supino reto maquina",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 60
+        },
+        {
+          "name": "Supino inclinado com halteres",
+          "series": 3,
+          "repetitions": 8,
+          "weight": 20
+        },
+        { "name": "Crucifixo", "series": 3, "repetitions": 10, "weight": 20 },
+        {
+          "name": "Paralela",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 0
+        },
+        {
+          "name": "Elevacao lateral",
+          "series": 4,
+          "repetitions": 10,
+          "weight": 10
+        }
+      ]
+    },
+    {
+      "title": "Posterior e panturrilha",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Flexora em pé",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 20
+        },
+        {
+          "name": "Elevacao de quadril",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 30
+        },
+        { "name": "Stiff", "series": 3, "repetitions": 10, "weight": 15 },
+        {
+          "name": "Adutor",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 50
+        },
+        { "name": "Abdutor", "series": 3, "repetitions": 12, "weight": 55 },
+        {
+          "name": "Panturrilha maquina",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 60
+        }
+      ]
+    }
+  ]
+}
