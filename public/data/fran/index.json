@@ -1,3 +1,9 @@
 {
-  "files": ["workout1.json", "workout2.json", "workout3.json", "workout4.json"]
+  "files": [
+    "workout1.json",
+    "workout2.json",
+    "workout3.json",
+    "workout4.json",
+    "workout5.json"
+  ]
 }

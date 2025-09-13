@@ -1,0 +1,147 @@
+{
+  "date": "2025-09-13",
+  "notes": "",
+  "workout": [
+    {
+      "title": "Perna",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Cadeira extensora",
+          "series": 4,
+          "repetitions": 15,
+          "weight": 45
+        },
+        {
+          "name": "Legpress 45",
+          "series": 4,
+          "repetitions": 15,
+          "weight": 60
+        },
+        {
+          "name": "Agachamento Hack",
+          "series": 4,
+          "repetitions": 15,
+          "weight": 15
+        },
+        { "name": "Afundo", "series": 3, "repetitions": 15, "weight": 10 }
+      ]
+    },
+    {
+      "title": "Peito, triceps e abs",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Supino maquina (pegada baixa) - Dropset",
+          "series": 3,
+          "repetitions": "12 + 8",
+          "weight": "15 + 10"
+        },
+        {
+          "name": "Crossover unilateral",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 5
+        },
+        {
+          "name": "A. Triceps testa",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 4
+        },
+        {
+          "name": "A. Abdominal reto",
+          "series": 3,
+          "repetitions": 20,
+          "weight": 0
+        },
+        {
+          "name": "B. Triceps frances sentado",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 10
+        },
+        {
+          "name": "B. Abdominal na bola",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "title": "Costas, biceps",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Puxada fechada (dropset)",
+          "series": 3,
+          "repetitions": "12 + 8",
+          "weight": 35
+        },
+        {
+          "name": "A. Remada cavalinho aberta",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 10
+        },
+        {
+          "name": "A. Elevacao lateral",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 5
+        },
+        {
+          "name": "B. Remada fechada V",
+          "series": 3,
+          "repetitions": 12,
+          "weight": 20
+        },
+        {
+          "name": "B. Desenvolvimento com halteres",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 10
+        },
+        {
+          "name": "C. Crucifixo invertido",
+          "series": 3,
+          "repetitions": "12",
+          "weight": "10"
+        },
+        {
+          "name": "C. Bíceps com halteres (dropset)",
+          "series": 3,
+          "repetitions": "12 + 8",
+          "weight": "10 + 5"
+        }
+      ]
+    },
+    {
+      "title": "Posterior de coxa",
+      "frequency": 4,
+      "exercises": [
+        {
+          "name": "Flexora em pé",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 10
+        },
+        { "name": "Stiff", "series": 3, "repetitions": 10, "weight": 10 },
+        {
+          "name": "Elevacao de quadril",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 25
+        },
+        { "name": "Coice polia", "series": 3, "repetitions": 10, "weight": 10 },
+        {
+          "name": "Sumo",
+          "series": 3,
+          "repetitions": 10,
+          "weight": 35
+        }
+      ]
+    }
+  ]
+}
